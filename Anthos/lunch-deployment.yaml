@@ -17,7 +17,7 @@ spec:
         app: lunch-app
     spec:
       containers:
-      - image: us-east1-docker.pkg.dev/anthos-309114/lunch-repo/lunch:v5
+      - image: us-east1-docker.pkg.dev/anthos-309114/lunch-repo/lunch:v7
         name: lunch
         ports:
         - containerPort: 4000
