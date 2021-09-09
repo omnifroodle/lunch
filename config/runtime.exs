@@ -4,10 +4,6 @@ config :astra,
   username: System.get_env("CASS_USERNAME"),
   password: System.get_env("CASS_PASSWORD")
 
-# NOTE: don't keep keys in this file, use ENV_VARS
-# keeping here for simplicity of demo app
-secret_key_base = "EzJ23Sw8SDWaXIS3Nje5q8IlvAtbY+M4sMrO3iMRLH8porlFUSM7/QxCsM3GhqI2"
-
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -18,10 +14,8 @@ secret_key_base = "EzJ23Sw8SDWaXIS3Nje5q8IlvAtbY+M4sMrO3iMRLH8porlFUSM7/QxCsM3Gh
 # which you should run after static files are built and
 # before starting your production server.
 config :lunch, LunchWeb.Endpoint,
-  url: [host: System.get_env("HOST") || "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json",
+  url: [host: System.get_env("HOST") || "localhost", port: 80],
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
     transport_options: [socket_opts: [:inet6]]
-  ],
-  secret_key_base: secret_key_base
+  ]
