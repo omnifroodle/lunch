@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: lunch-app
+  name: lunch-app
+  namespace: frontend
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: lunch-app
+  template:
+    metadata:
+      labels:
+        app: lunch-app
+    spec:
+      containers:
+      - image: us-east1-docker.pkg.dev/anthos-309114/lunch-repo/lunch:v5
+        name: lunch
+        ports:
+        - containerPort: 4000
+        env:
+        - name: CASS_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: cassandra-admin-secret
+              key: username
+        - name: CASS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: cassandra-admin-secret
+              key: password
+        - name: CASS_HOST
+          value: anthos-k8ssandra-dc2-stargate-service.us-central1.svc.cluster.local 
