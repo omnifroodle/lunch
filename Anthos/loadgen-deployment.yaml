@@ -18,7 +18,7 @@ spec:
         - name: SERVER_ADDR
           value: http://lunch-app-service:80/fake
         - name: REQUESTS_PER_SECOND
-          value: '10'
+          value: '1'
         image: gcr.io/google-samples/istio/loadgen:v0.0.1
         imagePullPolicy: Always
         name: main
