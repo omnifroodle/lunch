@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   labels:
     app: lunch-app
-  name: lunch-app
-  namespace: frontend
+    name: lunch-app
+    namespace: frontend
 spec:
   replicas: 1
   revisionHistoryLimit: 10
