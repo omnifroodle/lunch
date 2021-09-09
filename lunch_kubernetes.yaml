@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lunch-deployment
+  labels:
+    app: lunch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lunch
+  template:
+    metadata:
+      labels:
+        app: lunch
+    spec:
+      containers:
+      - name: lunch
+        image: localhost:5000/lunch:0.1
+        ports:
+        - containerPort: 80
