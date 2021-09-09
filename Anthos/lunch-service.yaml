@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: lunch-app
+    app.kubernetes.io/managed-by: configmanagement.gke.io
+    configsync.gke.io/declared-version: v1
+  name: lunch-app-service
+  namespace: frontend
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: lunch-app
+  sessionAffinity: None
+  type: LoadBalancer
