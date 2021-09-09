@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loadgenerator
+  namespace: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loadgenerator
+  template:
+    metadata:
+      labels:
+        app: loadgenerator
+    spec:
+      containers:
+      - env:
+        - name: SERVER_ADDR
+          value: http://lunch-app-service:80/fake
+        - name: REQUESTS_PER_SECOND
+          value: '10'
+        image: gcr.io/google-samples/istio/loadgen:v0.0.1
+        imagePullPolicy: Always
+        name: main
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 300m
+            memory: 256Mi
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 5
