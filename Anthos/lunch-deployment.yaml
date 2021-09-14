@@ -35,4 +35,4 @@ spec:
         - name: CASS_HOST
           value: anthos-k8ssandra-dc2-stargate-service.us-central1.svc.cluster.local 
         - name: HOST
-          value: east.com
+          value: example.com
