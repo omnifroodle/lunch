@@ -13,25 +13,24 @@
                 <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
                     <div class="max-w-md mx-auto">
                         <div>
-                            <a href="https://phoenixframework.org/" class="phx-logo">
-                                <img src="<%= Routes.static_path(@conn, "/images/lunch.png") %>" alt="Phoenix Framework Logo"/>
-                            </a>
+
+                            <h1 class="text-green-900 text-9xl font-extrabold">lunch?</h1>
                         </div>
                         <div class="divide-y divide-gray-200">
                             <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
                             <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-                            
+
                             <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <%= @inner_content %>
                             </div>
                             <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
-                                <p>a footer</p>
+                                everybody 💘 lunch.
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
-        </div>  
+        </div>
 
 </body>
 </html>

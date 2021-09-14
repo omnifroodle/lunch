@@ -14,7 +14,7 @@ defmodule LunchWeb.PageController do
       thumbnail: user.picture.thumbnail
     }
     {:ok, _} = Astra.Rest.add_row("lunch", "lunchers", lunch)
-    render(conn, "index.html")
+    render(conn, "index.html", luncher: lunch)
   end
 
 end
