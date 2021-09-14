@@ -1,4 +1,5 @@
 cassandra:
+  version: 3.11.10
   auth:
     superuser:
       secret: cassandra-admin-secret

@@ -1,8 +1,9 @@
 cassandra:
+  version: 3.11.10
   auth:
     superuser:
       secret: cassandra-admin-secret
-  additionalSeeds: [10.0.0.5, 10.0.1.12, 10.0.2.7]
+  additionalSeeds: [10.0.2.29, 10.0.1.19, 10.0.0.18]
   cassandraLibDirVolume:
     storageClass: standard-rwo
     size: 20Gi
