@@ -1,27 +1,2 @@
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-    <div class="absolute inset-0 bg-gradient-to-r from-green-200 to-orange-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-      <div class="max-w-md mx-auto">
-        <div>
-          <a href="https://phoenixframework.org/" class="phx-logo">
-            <img src="<%= Routes.static_path(@conn, "/images/lunch.png") %>" alt="Phoenix Framework Logo"/>
-          </a>
-        </div>
-        <div class="divide-y divide-gray-200">
-          <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-          <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-          
-          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-            <%= @inner_content %>
-            
-          </div>
-          <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
-            <p>a footer</p>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <%= @inner_content %>

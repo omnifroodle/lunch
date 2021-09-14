@@ -17,6 +17,16 @@ defmodule LunchWeb.LunchLive do
     }
     {:ok, _} = Astra.Rest.add_row("lunch", "lunchers", lunch)
     {:ok, lunchers} = Astra.Rest.search_table("lunch", "lunchers", %{location: %{"$eq": "1"}})
-    {:noreply, assign(socket, lunchers: lunchers)}
+    reduced_lunchers = Enum.reduce(lunchers, %{}, fn (x, acc) ->
+      if Map.has_key?(acc, x.name) do
+        put_in(acc, [x.name, :count], get_in(acc, [x.name, :count]) + 1)
+      else
+        Map.put(acc, x.name, Map.put(x, :count, 1))
+      end
+    end)
+    |> Map.to_list()
+    |> Enum.sort_by(&(elem(&1, 1).count), :desc)
+    {:noreply, assign(socket, lunchers: reduced_lunchers)}
   end
+
 end

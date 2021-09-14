@@ -1,0 +1,3 @@
+<%= if @luncher do %>
+    <%= @luncher.name %>
+<% end %>
