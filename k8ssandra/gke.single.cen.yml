@@ -1,0 +1,33 @@
+cassandra:
+  auth:
+    superuser:
+      secret: cassandra-admin-secret
+  cassandraLibDirVolume:
+    storageClass: standard-rwo
+    size: 10Gi
+  clusterName: multi-region
+  heap:
+   size: 1G
+   newGenSize: 1G
+  resources:
+    requests:
+      cpu: 200m
+      memory: 2Gi
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+  datacenters:
+  - name: dc2
+    size: 1
+    racks:
+    - name: default
+kube-prometheus-stack:
+  grafana:
+    adminUser: admin
+    adminPassword: admin123
+stargate:
+  enabled: true
+  replicas: 1
+  heapMB: 256
+  cpuReqMillicores: 200
+  cpuLimMillicores: 1000
