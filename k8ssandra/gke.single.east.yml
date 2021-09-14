@@ -2,6 +2,7 @@ cassandra:
   auth:
     superuser:
       secret: cassandra-admin-secret
+  additionalSeeds: [10.0.0.18]
   cassandraLibDirVolume:
     storageClass: standard-rwo
     size: 100Gi
